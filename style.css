@@ -1,0 +1,22 @@
+body{
+    background: linear-gradient(to left, rgb(15, 218, 225), rgb(222, 235, 36));
+}
+.container {
+    width: 69%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+h2,h3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(46, 25, 126);
+}
+a{
+    font-family:cursive;
+    font-weight: bold;
+}
+.notecard{
+    box-shadow:2px 2px 2px 2px  rgb(151, 147, 147);
+    border-top: 3px solid rgb(26, 48, 210);
+}
+#saveBtn{
+    display: none;
+}
