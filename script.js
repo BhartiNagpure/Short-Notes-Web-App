@@ -1,4 +1,6 @@
 
+
+
 // write to show our content after reloading
 
 shownotes(); 
@@ -16,9 +18,16 @@ addBtn.addEventListener("click", function (e) {
         else {
             notesObj = JSON.parse(notes);
         }
-        notesObj.push(addTxt.value);
+
+        let myObj = {
+            title : heading.value,
+            text : addTxt.value
+
+        }
+        notesObj.push(myObj);
         localStorage.setItem("notes", JSON.stringify(notesObj));
         addTxt.value = " ";
+        heading.value=" ";
     }
     shownotes();
 })
@@ -39,8 +48,8 @@ function shownotes() {
         txt += ` 
         <div class="notecard my-2 mx-2 card" style="width: 18rem;">
             <div class="card-body">
-               <h5 class="card-title"> </h5>
-               <p class="card-text">${element}</p>
+               <h5 class="card-title"> ${element.title} </h5>
+               <p class="card-text">${element.text}</p>
               <img  onclick="editNote(${index})" style ="width:1.5rem; height:1.5rem;" src="img/edit.png "/>
                <img id="${index}" onclick="deleteNote(this.id)" style="width:1.5rem; height:1.5rem " src="img/delete png.jpg"/>
             </div>
@@ -50,6 +59,7 @@ function shownotes() {
     let cardTitle = document.getElementsByClassName("card-title");
      cardTitle.innerHTML =txt;
     let noteElement = document.getElementById("notes");
+    
     if (notesObj.length != 0) {
         noteElement.innerHTML = txt;
     }
@@ -58,7 +68,7 @@ function shownotes() {
     }
 }
  
-//unction to delete a note
+//function to delete a note
 function deleteNote(index) {
     let saveBtn = document.getElementById("saveBtn");
     let addBtn = document.getElementById("addBtn");
@@ -128,14 +138,15 @@ let search = document.getElementById("search");
 
 search.addEventListener("input", function (e) {
 
-    let inputValue = e.target.value.toUpperCase();
+    let inputValue = e.target.value;
     let notecard = document.getElementsByClassName("notecard");
     Array.from(notecard).forEach(function (element) {
-        let cardtext =element.getElementsByTagName("p")[0].innerText;
-        if (cardtext.includes(inputValue)) {
+        let cardtext =element.getElementsByTagName("h5")[0].innerText;
+        if (cardtext.toLowerCase().includes(inputValue.toLowerCase())) {
             element.style.display = "block";
         } else {
             element.style.display = "none";
         }
             })
 });
+

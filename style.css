@@ -20,3 +20,19 @@ a{
 #saveBtn{
     display: none;
 }
+.signuphead{
+    width: 30%;
+    margin: 40px  auto; 
+    text-align: center; 
+}
+.signup{
+    font-size: 17px;
+    font-weight:600;
+}
+.container2{
+    width: 30%;
+    margin: 2px  auto;
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 10px;
+}
